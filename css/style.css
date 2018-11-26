@@ -1,0 +1,24 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    color: #111;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.figure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 5% 0;
+    background-color: rgba(33, 33, 33, .3);
+    align-items: center;
+
+}
