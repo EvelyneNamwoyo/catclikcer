@@ -17,15 +17,61 @@
 //     document.getElementById('clicks2').innerText = count2;
 // });
 // list of cat names 
-let cats = ['Kitty','Max','Little','Amber','Autumn','Kariti'];
+// let cats = ['Kitty','Max','Little','Amber','Autumn','Kariti'];
+let catInformation = {beautiful:'images/beautiful.jpeg', cute:'images/cute.jpeg', 
+                        little:'images/little.jpeg', amber:'images/amber.jpeg',
+                        autumn:'images/autumn.jpeg',kariti:'images/kariti.jpeg'};
+let pictureContainer = document.querySelector('.mycat');
 function catHolder(catName){
-    return `<div class="cat">
-            ${catName}
-        </div>`
+    // return `<div class="cat">
+    //         ${catName}
+    //     </div>`
+    return `<p class="cat">
+        ${catName}
+    </div>`
+    
 
+}
+function pictureHolder(picName){
+    return `<div class="clickcat">
+                <p>You clicked me <span id="clicks">0</span> times</p>
+                <img id="mycat" src="images/${picName}.jpg">
+                <p class="caption">${picName}</p>
+            </div>`
+        // return `
+        //         <img id="mycat" src="images/${picName}.jpeg">
+        //         `
+}
+function displayCatPicture(){
+    let allCats = document.querySelectorAll('.cat')
+    allCats.forEach(function(cat){
+        
+        cat.addEventListener('click',function(){
+            let catpicture = pictureHolder(cat.innerText)
+            pictureContainer.innerHTML = catpicture
+            console.log(catpicture.innerText)
+
+        });
+
+    });
+}
+
+function countClicks(){
+    let mycats = document.querySelectorAll('.cat')
+    allCats.forEach(function(cat){
+        
+        cat.addEventListener('click',function(){
+            let catpicture = pictureHolder(cat.innerText)
+            pictureContainer.innerHTML = catpicture
+            console.log(catpicture.innerText)
+
+        });
+
+    }); 
 }
 function catList(){
     // let catPlace = document.querySelector('.catNames');
+    let cats = Object.keys(catInformation);
     for(const cat of cats){
         let temporaryHolder = document.createElement('ul');
         temporaryHolder.innerHTML = catHolder(cat);
@@ -36,7 +82,13 @@ function catList(){
 
 function DisplayCat(){
     let allCats = document.querySelectorAll('.cat');
+    allCats.forEach(function(cat){
+        cat.addEventListener('click',function(){
+
+        })
+    });
 }
+
 // clear the screen for testing
 // document.body.innerHTML = '';
 
@@ -62,3 +114,13 @@ function DisplayCat(){
 //     document.body.appendChild(elem);
 // };
 catList();
+const bookMarks = {
+    x: 1,
+    y: 2,
+    z: 3
+  };
+  for (var key in bookMarks) {
+    console.log(bookMarks[key])
+}
+displayCatPicture();
+pictureHolder('beautiful')
