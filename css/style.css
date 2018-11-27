@@ -11,7 +11,7 @@ body {
     padding-right: 0;
 }
 
-.figure{
+main,aside{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,6 +22,11 @@ body {
     align-items: center;
 
 }
+aside .cat{
+    color: dodgerblue;
+    background-color: azure;
+}
+
 .cat #mycat{
     /* width: 300px; */
     height: 350px;
