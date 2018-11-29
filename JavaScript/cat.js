@@ -23,29 +23,25 @@ let catInformation = {beautiful:'images/beautiful.jpeg', cute:'images/cute.jpeg'
                         autumn:'images/autumn.jpeg',kariti:'images/kariti.jpeg'};
 let pictureContainer = document.querySelector('.mycats');
 function catHolder(catName){
-    // return `<div class="cat">
-    //         ${catName}
-    //     </div>`
     return `<p class="cat">
         ${catName}
     </div>`
     
 
 }
+// This function contains the place holder for the cat name and number of clicks
 function pictureHolder(picName){
     return `<div class="clickcat">
                 <p>You clicked me <span id="clicks">0</span> times</p>
                 <img id="mycat" src="images/${picName}.jpg">
-                <p class="caption">${picName}</p>
+                <p class="caption">My name is: ${picName}</p>
             </div>`
-        // return `
-        //         <img id="mycat" src="images/${picName}.jpeg">
-        //         `
 }
+// This loops through a list of all cat names and displays their pictures
 function displayCatPicture(){
     let allCats = document.querySelectorAll('.cat')
     allCats.forEach(function(cat){
-        
+        // Listens for clicks on a cat name
         cat.addEventListener('click',function(){
             let catpicture = pictureHolder(cat.innerText)
             pictureContainer.innerHTML = catpicture
@@ -54,7 +50,7 @@ function displayCatPicture(){
 
     });
 }
-
+// This function counts the number of clicks on a picture
 function countClicks(){
     let count=0;
     let clickcat = document.getElementById('mycat')
@@ -64,8 +60,8 @@ function countClicks(){
                 document.getElementById('clicks').innerText = count;
             });
 }
+// This function creates a cat
 function catList(){
-    // let catPlace = document.querySelector('.catNames');
     let cats = Object.keys(catInformation);
     for(const cat of cats){
         let temporaryHolder = document.createElement('ul');
