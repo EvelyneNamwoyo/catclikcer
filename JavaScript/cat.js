@@ -21,7 +21,7 @@
 let catInformation = {beautiful:'images/beautiful.jpeg', cute:'images/cute.jpeg', 
                         little:'images/little.jpeg', amber:'images/amber.jpeg',
                         autumn:'images/autumn.jpeg',kariti:'images/kariti.jpeg'};
-let pictureContainer = document.querySelector('.mycat');
+let pictureContainer = document.querySelector('.mycats');
 function catHolder(catName){
     // return `<div class="cat">
     //         ${catName}
@@ -49,25 +49,20 @@ function displayCatPicture(){
         cat.addEventListener('click',function(){
             let catpicture = pictureHolder(cat.innerText)
             pictureContainer.innerHTML = catpicture
-            console.log(catpicture.innerText)
-
+            countClicks();
         });
 
     });
 }
 
 function countClicks(){
-    let mycats = document.querySelectorAll('.cat')
-    allCats.forEach(function(cat){
-        
-        cat.addEventListener('click',function(){
-            let catpicture = pictureHolder(cat.innerText)
-            pictureContainer.innerHTML = catpicture
-            console.log(catpicture.innerText)
-
-        });
-
-    }); 
+    let count=0;
+    let clickcat = document.getElementById('mycat')
+        clickcat.addEventListener('click',function(){
+            count += 1;
+            console.log(count)
+                document.getElementById('clicks').innerText = count;
+            });
 }
 function catList(){
     // let catPlace = document.querySelector('.catNames');
@@ -75,19 +70,19 @@ function catList(){
     for(const cat of cats){
         let temporaryHolder = document.createElement('ul');
         temporaryHolder.innerHTML = catHolder(cat);
-        let mycat = temporaryHolder.firstChild;
-        document.getElementsByClassName('catNames')[0].appendChild(mycat)
+        let catToAdd= temporaryHolder.firstChild;
+        document.getElementsByClassName('catNames')[0].appendChild(catToAdd)
     }
 }
 
-function DisplayCat(){
-    let allCats = document.querySelectorAll('.cat');
-    allCats.forEach(function(cat){
-        cat.addEventListener('click',function(){
-
-        })
-    });
-}
+// function DisplayCat(){
+//     let allCats = document.querySelectorAll('.cat');
+//     allCats.forEach(function(cat){
+//         cat.addEventListener('click',function(){
+//         })
+//     });
+   
+// }
 
 // clear the screen for testing
 // document.body.innerHTML = '';
